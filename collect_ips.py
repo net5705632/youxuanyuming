@@ -3,12 +3,12 @@ from bs4 import BeautifulSoup
 import re
 import os
 
-# 目标URL列表（新增了第三个URL）
-urls = [
-    'https://www.wetest.vip/page/cloudfront/address_v4.html',
-    'https://cf.090227.xyz',
-    'https://raw.githubusercontent.com/ymyuuu/IPDB/main/proxy.txt'  # 新增的URL
-]
+# 目标URL列表
+urls = ['https://www.wetest.vip/page/cloudfront/address_v4.html', 
+        'https://raw.githubusercontent.com/ymyuuu/IPDB/main/proxy.txt',
+        'https://ip.164746.xyz/ipTop10.html',
+        'https://cf.090227.xyz'
+        ]
 
 # 正则表达式用于匹配IP地址
 ip_pattern = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
@@ -27,17 +27,16 @@ with open('ip.txt', 'w') as file:
         soup = BeautifulSoup(response.text, 'html.parser')
         
         # 根据网站的不同结构找到包含IP地址的元素
-        if url in [
-            'https://www.wetest.vip/page/cloudfront/address_v4.html',
-            'https://cf.090227.xyz'
-        ]:
-            # 前两个URL继续使用<tr>标签解析
+        if url == 'https://www.wetest.vip/page/cloudfront/address_v4.html':
             elements = soup.find_all('tr')
-        elif url == 'https://raw.githubusercontent.com/ymyuuu/IPDB/main/proxy.txt':
-            # 新URL假设IP在<li>标签中，根据实际结构调整此处
-            elements = soup.find_all('li')
+        if url == 'https://raw.githubusercontent.com/ymyuuu/IPDB/main/proxy.txt':
+            elements = soup.find_all('tr')
+        if url == 'https://ip.164746.xyz/ipTop10.html':
+            elements = soup.find_all('tr')
+        elif url == 'https://cf.090227.xyz':
+            elements = soup.find_all('tr')
         else:
-            elements = soup.find_all('li')  # 默认处理
+            elements = soup.find_all('li')
         
         # 遍历所有元素,查找IP地址
         for element in elements:
