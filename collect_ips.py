@@ -7,7 +7,7 @@ import os
 urls = [
     'https://www.wetest.vip/page/cloudfront/address_v4.html',
     'https://cf.090227.xyz',
-    'https://ip.164746.xyz/ipTop10.html'  # 新增的URL
+    'https://raw.githubusercontent.com/ymyuuu/IPDB/main/proxy.txt'  # 新增的URL
 ]
 
 # 正则表达式用于匹配IP地址
@@ -33,7 +33,7 @@ with open('ip.txt', 'w') as file:
         ]:
             # 前两个URL继续使用<tr>标签解析
             elements = soup.find_all('tr')
-        elif url == 'https://ip.164746.xyz/ipTop10.html':
+        elif url == 'https://raw.githubusercontent.com/ymyuuu/IPDB/main/proxy.txt':
             # 新URL假设IP在<li>标签中，根据实际结构调整此处
             elements = soup.find_all('li')
         else:
