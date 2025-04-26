@@ -54,4 +54,10 @@ for url in urls:
     except Exception as e:
         print(f"请求 {url} 时出错：{str(e)}")
 
-# 保存结果（同上）
+# 将结果写入文件
+if ip_set:
+    with open("ip.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(sorted(ip_set)))
+    print(f"成功保存 {len(ip_set)} 个唯一IP地址到 ip.txt")
+else:
+    print("未找到任何IP地址")
