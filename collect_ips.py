@@ -3,10 +3,12 @@ from bs4 import BeautifulSoup
 import re
 import os
 
-# 目标URL列表
-urls = ['https://www.wetest.vip/page/cloudfront/address_v4.html', 
-        'https://cf.090227.xyz'
-        ]
+# 目标URL列表（新增了第三个URL）
+urls = [
+    'https://www.wetest.vip/page/cloudfront/address_v4.html',
+    'https://cf.090227.xyz',
+    'https://ip.164746.xyz/ipTop10.html'  # 新增的URL
+]
 
 # 正则表达式用于匹配IP地址
 ip_pattern = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
@@ -25,12 +27,17 @@ with open('ip.txt', 'w') as file:
         soup = BeautifulSoup(response.text, 'html.parser')
         
         # 根据网站的不同结构找到包含IP地址的元素
-        if url == 'https://www.wetest.vip/page/cloudfront/address_v4.html':
+        if url in [
+            'https://www.wetest.vip/page/cloudfront/address_v4.html',
+            'https://cf.090227.xyz'
+        ]:
+            # 前两个URL继续使用<tr>标签解析
             elements = soup.find_all('tr')
-        elif url == 'https://cf.090227.xyz':
-            elements = soup.find_all('tr')
-        else:
+        elif url == 'https://ip.164746.xyz/ipTop10.html':
+            # 新URL假设IP在<li>标签中，根据实际结构调整此处
             elements = soup.find_all('li')
+        else:
+            elements = soup.find_all('li')  # 默认处理
         
         # 遍历所有元素,查找IP地址
         for element in elements:
