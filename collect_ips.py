@@ -6,7 +6,7 @@ urls = [
     "https://ip.164746.xyz/ipTop10.html",
     "https://cf.090227.xyz",
     "https://www.wetest.vip/page/cloudfront/address_v4.html",
-    "https://raw.githubusercontent.com/ymyuuu/IPDB/main/proxy.txt"
+    "https://raw.githubusercontent.com/ymyuuu/IPDB/main/BestProxy/proxy.txt"
 ]
 
 # 设置请求头
