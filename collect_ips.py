@@ -3,11 +3,13 @@ import re
 
 # 定义要采集的URL列表
 urls = [
-    "https://ip.164746.xyz/ipTop10.html",
-    "https://zip.baipiao.eu.org/45102-1-443.txt",
-    "https://zip.baipiao.eu.org/31898-1-443.txt",
-    "https://cf.090227.xyz",
-    "https://www.wetest.vip/page/cloudfront/address_v4.html",
+    "https://raw.githubusercontent.com/ymyuuu/IPDB/refs/heads/main/BestProxy/proxy.txt",
+#   "https://ip.164746.xyz/ipTop10.html",
+#   "https://ip.164746.xyz/ipTop10.html",
+#   "https://zip.baipiao.eu.org/45102-1-443.txt",
+#   "https://zip.baipiao.eu.org/31898-1-443.txt",
+#   "https://cf.090227.xyz",
+#   "https://www.wetest.vip/page/cloudfront/address_v4.html",
     "https://raw.githubusercontent.com/ymyuuu/IPDB/main/BestProxy/proxy.txt"
 ]
 
